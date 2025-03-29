@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cracka | Facebook</title>
-    <link rel="icon" href="https://cracka.org/favicon.ico">
     <style>
+        /* 2012 Facebook Styling */
         body {
             font-family: "Helvetica Neue", Arial, sans-serif;
             background-color: #e9eaed;
@@ -48,7 +48,7 @@
             height: 300px;
             position: relative;
             border-bottom: 1px solid #133783;
-            background-image: url('https://cracka.org/cover.jpg');
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=980&q=80');
             background-size: cover;
             background-position: center;
         }
@@ -138,39 +138,17 @@
             padding: 15px;
         }
         
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5px;
+        .info-item {
+            margin-bottom: 10px;
         }
         
-        .photo {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s;
+        .info-label {
+            color: #90949c;
+            font-size: 12px;
         }
         
-        .photo:hover {
-            transform: scale(1.02);
-        }
-        
-        .hidden-link {
-            position: relative;
-            display: block;
-        }
-        
-        #search {
-            float: right;
-            margin-top: 28px;
-        }
-        
-        #search input {
-            padding: 5px;
-            border: 1px solid #1d2a5b;
-            border-radius: 2px;
-            width: 200px;
+        .info-value {
+            font-size: 14px;
         }
         
         .post {
@@ -197,13 +175,102 @@
             color: #365899;
             font-size: 12px;
         }
+        
+        .post-footer a {
+            color: #365899;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        .post-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Photo grid styles */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+        }
+        
+        .photo {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .photo:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Hidden link styling - looks like a normal photo */
+        .hidden-link {
+            position: relative;
+            display: block;
+        }
+        
+        .hidden-link::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0);
+            transition: background 0.3s;
+        }
+        
+        .hidden-link:hover::after {
+            background: rgba(0,0,0,0.1);
+        }
+        
+        /* Search bar styling */
+        #search {
+            float: right;
+            margin-top: 28px;
+        }
+        
+        #search input {
+            padding: 5px;
+            border: 1px solid #1d2a5b;
+            border-radius: 2px;
+            width: 200px;
+        }
+        
+        /* Friend photo container */
+        .friend-photo {
+            position: relative;
+        }
+        
+        .friend-name {
+            font-size: 12px;
+            margin-top: 5px;
+            text-align: center;
+            color: #365899;
+        }
+        
+        /* Hidden terminal effect */
+        .hidden-terminal {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            color: #0f0;
+            font-family: monospace;
+            padding: 10px;
+            display: none;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
     <div id="header">
         <div id="header-content">
             <div id="logo">
-                <img src="https://cracka.org/facebook_logo.png" alt="Facebook">
+                <img src="facebook.svg" alt="Facebook">
             </div>
             <div id="search">
                 <input type="text" placeholder="Search Facebook">
@@ -214,7 +281,8 @@
     <div id="main">
         <div class="profile-header">
             <div class="profile-pic">
-                <img src="https://cracka.org/profile_pic.jpg" alt="Cracka profile">
+                <!-- Changed to Asian male profile photo -->
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Cracka profile">
             </div>
             <h1 class="profile-name">Cracka</h1>
         </div>
@@ -230,17 +298,82 @@
         <div class="main-content">
             <div class="left-column">
                 <div class="info-box">
-                    <div class="info-box-header">Photos <span style="float:right; font-weight:normal;">5</span></div>
+                    <div class="info-box-header">About</div>
+                    <div class="info-box-content">
+                        <div class="info-item">
+                            <div class="info-label">Work</div>
+                            <div class="info-value">Senior Archivist at Digital Futures</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Studied at</div>
+                            <div class="info-value">MIT Media Lab, 2006-2010</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Lives in</div>
+                            <div class="info-value">Singapore</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">From</div>
+                            <div class="info-value">Tokyo, Japan</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Joined</div>
+                            <div class="info-value">January 2011</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-box-header">Photos <span style="float:right; font-weight:normal;">247</span></div>
                     <div class="info-box-content">
                         <div class="photo-grid">
-                            <img src="https://cracka.org/tech_conference.jpg" class="photo" alt="Tech conference">
-                            <img src="https://cracka.org/workshop.jpg" class="photo" alt="Workshop">
-                            <img src="https://cracka.org/office.jpg" class="photo" alt="Office">
-                            <img src="https://cracka.org/team_meeting.jpg" class="photo" alt="Team meeting">
-                            <img src="https://cracka.org/working.jpg" class="photo" alt="Working">
-                            <a href="https://cracka.org/system.html" class="hidden-link">
-                                <img src="https://cracka.org/server_room.jpg" class="photo" alt="Server room">
+                            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Tech conference">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Workshop">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Office">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Team meeting">
+                            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Working">
+                            <!-- Hidden access point disguised as photo -->
+                            <a href="password.html" class="hidden-link">
+                                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Server room">
                             </a>
+                        </div>
+                        <div style="text-align:right; margin-top:10px;">
+                            <a href="#" style="color:#365899; font-size:12px;">See All Photos</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-box-header">Friends <span style="float:right; font-weight:normal;">1,284</span></div>
+                    <div class="info-box-content">
+                        <div class="photo-grid">
+                            <div class="friend-photo">
+                                <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Friend 1">
+                                <div class="friend-name">Alex Chen</div>
+                            </div>
+                            <div class="friend-photo">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Friend 2">
+                                <div class="friend-name">Maria Rodriguez</div>
+                            </div>
+                            <div class="friend-photo">
+                                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Friend 3">
+                                <div class="friend-name">James Wilson</div>
+                            </div>
+                            <div class="friend-photo">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Friend 4">
+                                <div class="friend-name">Sarah Kim</div>
+                            </div>
+                            <div class="friend-photo">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Friend 5">
+                                <div class="friend-name">David Miller</div>
+                            </div>
+                            <div class="friend-photo">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" class="photo" alt="Friend 6">
+                                <div class="friend-name">Lisa Wong</div>
+                            </div>
+                        </div>
+                        <div style="text-align:right; margin-top:10px;">
+                            <a href="#" style="color:#365899; font-size:12px;">See All Friends</a>
                         </div>
                     </div>
                 </div>
@@ -253,16 +386,98 @@
                         <span style="float:right; color:#90949c;">2 days ago</span>
                     </div>
                     <div class="post-content">
-                        <img src="https://cracka.org/profile_post.jpg" style="width:100%; border-radius:3px;">
+                        <!-- Updated to Asian male profile photo -->
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:3px;">
                     </div>
                     <div class="post-footer">
                         <a href="#">Like</a>
                         <a href="#">Comment</a>
                         <a href="#">Share</a>
+                        <span style="float:right;">43 people like this</span>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-header">
+                        <strong>Cracka</strong> shared a link.
+                        <span style="float:right; color:#90949c;">1 week ago</span>
+                    </div>
+                    <div class="post-content">
+                        <div style="border: 1px solid #dddfe2; padding: 10px; background: #f6f7f9; border-radius:3px;">
+                            <div style="font-weight: bold; color: #365899;">The Future of Digital Preservation</div>
+                            <div style="font-size: 12px; color: #90949c;">techfutures.org/digital-preservation</div>
+                            <div style="margin-top: 5px; font-size:14px;">Fascinating article about new techniques for preserving digital artifacts. The work we're doing at Digital Futures aligns perfectly with these approaches.</div>
+                        </div>
+                    </div>
+                    <div class="post-footer">
+                        <a href="#">Like</a>
+                        <a href="#">Comment</a>
+                        <a href="#">Share</a>
+                        <span style="float:right;">28 people like this</span>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-header">
+                        <strong>Cracka</strong> was tagged in a photo.
+                        <span style="float:right; color:#90949c;">3 weeks ago</span>
+                    </div>
+                    <div class="post-content">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:3px;">
+                        <div style="margin-top:10px; font-size:14px;">Team meeting at the new Singapore office. Exciting times ahead for Digital Futures!</div>
+                    </div>
+                    <div class="post-footer">
+                        <a href="#">Like</a>
+                        <a href="#">Comment</a>
+                        <a href="#">Share</a>
+                        <span style="float:right;">87 people like this</span>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-header">
+                        <strong>Cracka</strong> checked in at <a href="#" style="color:#365899;">NeuralTech Conference 2012</a>.
+                        <span style="float:right; color:#90949c;">1 month ago</span>
+                    </div>
+                    <div class="post-content">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:3px;">
+                        <div style="margin-top:10px; font-size:14px;">Presenting our latest research on neural network compression techniques. Amazing turnout this year!</div>
+                    </div>
+                    <div class="post-footer">
+                        <a href="#">Like</a>
+                        <a href="#">Comment</a>
+                        <a href="#">Share</a>
+                        <span style="float:right;">112 people like this</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="hidden-terminal" id="terminal">
+        <div>System&gt; Initializing secure access...</div>
+        <div>System&gt; Authentication required</div>
+    </div>
+
+    <script>
+        // Easter egg - triple click profile pic to show terminal
+        let clickCount = 0;
+        let clickTimer;
+        
+        document.querySelector('.profile-pic').addEventListener('click', function() {
+            clickCount++;
+            if (clickTimer) clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => { clickCount = 0; }, 300);
+            
+            if (clickCount === 3) {
+                const terminal = document.getElementById('terminal');
+                terminal.style.display = 'block';
+                setTimeout(() => {
+                    terminal.style.display = 'none';
+                }, 2000);
+                clickCount = 0;
+            }
+        });
+    </script>
 </body>
-</html>
+</html>"
