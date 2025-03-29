@@ -138,17 +138,39 @@
             padding: 15px;
         }
         
-        .info-item {
-            margin-bottom: 10px;
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
         }
         
-        .info-label {
-            color: #90949c;
-            font-size: 12px;
+        .photo {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
         }
         
-        .info-value {
-            font-size: 14px;
+        .photo:hover {
+            transform: scale(1.02);
+        }
+        
+        .hidden-link {
+            position: relative;
+            display: block;
+        }
+        
+        #search {
+            float: right;
+            margin-top: 28px;
+        }
+        
+        #search input {
+            padding: 5px;
+            border: 1px solid #1d2a5b;
+            border-radius: 2px;
+            width: 200px;
         }
         
         .post {
@@ -174,77 +196,6 @@
             border-top: 1px solid #e9eaed;
             color: #365899;
             font-size: 12px;
-        }
-        
-        .post-footer a {
-            color: #365899;
-            text-decoration: none;
-            margin-right: 15px;
-        }
-        
-        .post-footer a:hover {
-            text-decoration: underline;
-        }
-        
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 5px;
-        }
-        
-        .photo {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .photo:hover {
-            transform: scale(1.02);
-        }
-        
-        .hidden-link {
-            position: relative;
-            display: block;
-        }
-        
-        .hidden-link::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0);
-            transition: background 0.3s;
-        }
-        
-        .hidden-link:hover::after {
-            background: rgba(0,0,0,0.1);
-        }
-        
-        #search {
-            float: right;
-            margin-top: 28px;
-        }
-        
-        #search input {
-            padding: 5px;
-            border: 1px solid #1d2a5b;
-            border-radius: 2px;
-            width: 200px;
-        }
-        
-        .friend-photo {
-            position: relative;
-        }
-        
-        .friend-name {
-            font-size: 12px;
-            margin-top: 5px;
-            text-align: center;
-            color: #365899;
         }
     </style>
 </head>
@@ -279,81 +230,17 @@
         <div class="main-content">
             <div class="left-column">
                 <div class="info-box">
-                    <div class="info-box-header">About</div>
-                    <div class="info-box-content">
-                        <div class="info-item">
-                            <div class="info-label">Work</div>
-                            <div class="info-value">Senior Archivist at Digital Futures</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Studied at</div>
-                            <div class="info-value">MIT Media Lab, 2006-2010</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Lives in</div>
-                            <div class="info-value">Singapore</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">From</div>
-                            <div class="info-value">Tokyo, Japan</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Joined</div>
-                            <div class="info-value">January 2011</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-box">
-                    <div class="info-box-header">Photos <span style="float:right; font-weight:normal;">247</span></div>
+                    <div class="info-box-header">Photos <span style="float:right; font-weight:normal;">5</span></div>
                     <div class="info-box-content">
                         <div class="photo-grid">
-                            <img src="https://cracka.org/photo1.jpg" class="photo" alt="Tech conference">
-                            <img src="https://cracka.org/photo2.jpg" class="photo" alt="Workshop">
-                            <img src="https://cracka.org/photo3.jpg" class="photo" alt="Office">
-                            <img src="https://cracka.org/photo4.jpg" class="photo" alt="Team meeting">
-                            <img src="https://cracka.org/photo5.jpg" class="photo" alt="Working">
-                            <a href="https://cracka.org/system" class="hidden-link">
-                                <img src="https://cracka.org/photo6.jpg" class="photo" alt="Server room">
+                            <img src="https://cracka.org/tech_conference.jpg" class="photo" alt="Tech conference">
+                            <img src="https://cracka.org/workshop.jpg" class="photo" alt="Workshop">
+                            <img src="https://cracka.org/office.jpg" class="photo" alt="Office">
+                            <img src="https://cracka.org/team_meeting.jpg" class="photo" alt="Team meeting">
+                            <img src="https://cracka.org/working.jpg" class="photo" alt="Working">
+                            <a href="https://cracka.org/system.html" class="hidden-link">
+                                <img src="https://cracka.org/server_room.jpg" class="photo" alt="Server room">
                             </a>
-                        </div>
-                        <div style="text-align:right; margin-top:10px;">
-                            <a href="#" style="color:#365899; font-size:12px;">See All Photos</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-box">
-                    <div class="info-box-header">Friends <span style="float:right; font-weight:normal;">1,284</span></div>
-                    <div class="info-box-content">
-                        <div class="photo-grid">
-                            <div class="friend-photo">
-                                <img src="https://cracka.org/friend1.jpg" class="photo" alt="Friend 1">
-                                <div class="friend-name">Alex Chen</div>
-                            </div>
-                            <div class="friend-photo">
-                                <img src="https://cracka.org/friend2.jpg" class="photo" alt="Friend 2">
-                                <div class="friend-name">Maria Rodriguez</div>
-                            </div>
-                            <div class="friend-photo">
-                                <img src="https://cracka.org/friend3.jpg" class="photo" alt="Friend 3">
-                                <div class="friend-name">James Wilson</div>
-                            </div>
-                            <div class="friend-photo">
-                                <img src="https://cracka.org/friend4.jpg" class="photo" alt="Friend 4">
-                                <div class="friend-name">Sarah Kim</div>
-                            </div>
-                            <div class="friend-photo">
-                                <img src="https://cracka.org/friend5.jpg" class="photo" alt="Friend 5">
-                                <div class="friend-name">David Miller</div>
-                            </div>
-                            <div class="friend-photo">
-                                <img src="https://cracka.org/friend6.jpg" class="photo" alt="Friend 6">
-                                <div class="friend-name">Lisa Wong</div>
-                            </div>
-                        </div>
-                        <div style="text-align:right; margin-top:10px;">
-                            <a href="#" style="color:#365899; font-size:12px;">See All Friends</a>
                         </div>
                     </div>
                 </div>
@@ -372,32 +259,10 @@
                         <a href="#">Like</a>
                         <a href="#">Comment</a>
                         <a href="#">Share</a>
-                        <span style="float:right;">43 people like this</span>
-                    </div>
-                </div>
-                
-                <div class="post">
-                    <div class="post-header">
-                        <strong>Cracka</strong> shared a link.
-                        <span style="float:right; color:#90949c;">1 week ago</span>
-                    </div>
-                    <div class="post-content">
-                        <div style="border: 1px solid #dddfe2; padding: 10px; background: #f6f7f9; border-radius:3px;">
-                            <div style="font-weight: bold; color: #365899;">The Future of Digital Preservation</div>
-                            <div style="font-size: 12px; color: #90949c;">techfutures.org/digital-preservation</div>
-                            <div style="margin-top: 5px; font-size:14px;">Fascinating article about new techniques for preserving digital artifacts. The work we're doing at Digital Futures aligns perfectly with these approaches.</div>
-                        </div>
-                    </div>
-                    <div class="post-footer">
-                        <a href="#">Like</a>
-                        <a href="#">Comment</a>
-                        <a href="#">Share</a>
-                        <span style="float:right;">28 people like this</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
-</html>
 </html>
